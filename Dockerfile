@@ -1,8 +1,9 @@
-FROM rust:slim-trixie AS builder
+FROM rust:alpine AS builder
+RUN apk add --no-cache musl-dev
 WORKDIR /src
 COPY . .
 RUN cargo build --release
 
-FROM debian:trixie-slim
+FROM scratch
 COPY --from=builder /src/target/release/simple-rust-discord /app
 CMD ["/app"]
