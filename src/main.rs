@@ -1,8 +1,11 @@
 use std::env;
 
-use serenity::all::{Context, EventHandler, GatewayIntents};
-use serenity::model::gateway::Ready;
-use serenity::{Client, async_trait};
+use serenity::{
+    Client,
+    all::{Context, EventHandler, GatewayIntents},
+    async_trait,
+    model::gateway::Ready,
+};
 
 struct Handler;
 
