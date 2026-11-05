@@ -15,11 +15,10 @@ impl EventHandler for Handler {
             return;
         };
         if let Some(shard_info) = data_about_bot.shard {
+            // ID is 0-indexed, total is 1-indexed
             println!(
-                "{} shard {}/{} is connected",
-                data_about_bot.user.name,
-                shard_info.id,
-                shard_info.total.get() - 1,
+                "{} shard ID {} ({} total) is connected",
+                data_about_bot.user.name, shard_info.id, shard_info.total,
             );
         } else {
             println!("{} is connected", data_about_bot.user.name);
